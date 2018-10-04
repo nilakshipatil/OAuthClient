@@ -1,0 +1,32 @@
+debug: false
+server:
+ contextPath: /app
+spring:
+ application:
+  name: app
+security:
+  user:
+    password: user
+  ignored: /,/favicon.ico,/index.html,/help,/help1.html,/js/**,/css/**,/webjars/**
+  sessions: ALWAYS
+  oauth2:
+    sso:
+      loginPath: /my/login
+management:
+  security:
+    role: HERO
+  
+---
+spring: 
+  profiles: default
+security:
+ oauth2:
+  client:
+   clientId: cbee0c7d70bdbed9bee6
+   clientSecret: 4c11b758cdabc916e4af783dfc97c83617cded69
+   accessTokenUri: https://github.com/login/oauth/access_token
+   userAuthorizationUri: https://github.com/login/oauth/authorize
+   clientAuthenticationScheme: form
+  resource:
+   userInfoUri: https://api.github.com/user
+   preferTokenInfo:  false

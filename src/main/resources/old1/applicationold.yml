@@ -1,0 +1,20 @@
+debug: true
+server:
+ contextPath:/app
+spring:
+ application:
+  name: OauthClientApp
+---
+spring:
+ profiles: default
+security:
+ oauth2:
+  client:
+   clientId: fa4b753d62b286cb6a13   ## Client id at git hub
+   clientSecret: d208a915c2e34179a8d2c9cecb5f23a3375ec95f   ## Client secreat generated at github
+   accessTokenUri: https://github.com/login/oauth/access_token
+   userAuthorizationUri: https://github.com/login/oauth/authorize
+   clientAuthenticationScheme: form
+  resource:
+   userInfoUri: https://api.github.com/user
+   preferTokenInfo: false
